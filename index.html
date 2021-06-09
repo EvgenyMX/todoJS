@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header - Flex Box</title>
+    <script src="https://kit.fontawesome.com/3d3be54772.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <div class="header__logo">
+                <a class="header__logo-href" href="">
+                    <img class="header__logo-img" src="https://seeklogo.com/images/R/react-logo-7B3CE81517-seeklogo.com.png" alt="">
+                </a>
+                <span class="header__logo-text">Разработка на React</span>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a class="header__nav-href" href="#">Главная</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-href" href="#">Контакты</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-href" href="#">Каталог</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__contact">
+                <div class="header__contact-phone">+7 (911) 155-62-52</div>
+                <div class="header__contact-email">sale-test@yandex.ru</div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="main">
+
+    <div class="container">
+        <div class="main__wrapper">
+            <div class="todo">
+                <h1>To Do List - JavaScript</h1>
+
+                <label for="todo-input" class="todo-record">
+                    <span>Впишите задачу на день</span>
+                    <input class="todo-input" type="text" id="todo-input">
+                    <button class="todo-add">Добавить</button>
+                </label>
+                <!-- <button class="delete-all">Удалить все задачи</button> -->
+                <div class="todo-list"></div>
+
+
+            </div>
+
+            
+        </div>
+    </div>
+
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>
