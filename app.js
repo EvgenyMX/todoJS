@@ -26,11 +26,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
     innerList.addEventListener("click", e => {
         const target = e.target;
-        if ( target.parentNode.classList.contains("completed") ) {
 
+        
+
+        if ( target.parentNode.classList.contains("completed") ) {
             const idItem = target.parentNode.dataset.id;
+            
             itemCompleted(idItem);
-            console.log(todoDataArr);
+        }
+        if ( target.parentNode.classList.contains("delete") ) {
+            const idItem = target.parentNode.dataset.id;
+            removeItem(idItem);
         }
     });
 
@@ -86,6 +92,15 @@ document.addEventListener('DOMContentLoaded', function(){
     function revomeAllItems() {}
 
 
+    function removeItem(idItem) { 
+        const todoItem =  document.querySelectorAll(".todo-item");
+        console.log(idItem);
+        todoItem[idItem].remove();
+        
+        todoDataArr.splice(idItem, 1);
+        localStorage.setItem( "todo", JSON.stringify(todoDataArr) );
+
+    }
     function itemCompleted(idItem) { 
 
 
