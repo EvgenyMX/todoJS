@@ -43,20 +43,25 @@ listItems.addEventListener("click", e => {
     const items = document.querySelectorAll(".todo-item");
 
 
-
-    
-
-
     if ( target.parentElement.classList.contains("delete") ) {
 
 
-        let idItemSelector = target.parentElement.parentElement.parentElement.id;
-        idItemSelector = idItemSelector.replace(/item_/, "");
+        let itemSelector = target.parentElement.parentElement.parentElement.id;
+        let idItem = itemSelector.replace(/item_/, "");
+
+        items.forEach( (item, i) => {
+            if ( idItem == i) {
+                // removeItem({item});
+            }
+        });
+
+        for (let i = 0; i < items.length; i++) {
+            console.log(i);
+        }
 
 
-        removeItem( { id:idItemSelector, item: target.parentElement.parentElement.parentElement  } );
+
     }
-
 
     if ( target.parentElement.classList.contains("completed") ) {
         const item = target.parentElement.parentElement.parentElement;
@@ -98,11 +103,20 @@ function renderListItem() {
     });
     infoText.innerHTML = `Вы имеете ${localItems.length} задач`;
 }
-function removeItem( {id, item} ) {
-    dataItems = JSON.parse( localStorage.getItem("todo") );
-    dataItems.splice(id, 1);
-    localStorage.setItem("todo", JSON.stringify(dataItems));
+function removeItem( {item} ) {
+
+    let idItem = item.id;
+    let idItemSelector = idItem.replace(/item_/, "");
+
     item.remove();
+    dataItems = JSON.parse( localStorage.getItem("todo") );
+
+    dataItems.splice(idItemSelector, 1);
+    
+    localStorage.setItem("todo", JSON.stringify(dataItems));
+    
+
+
     if ( !dataItems ) {
         infoText.innerHTML = "Задач нет";
     }
